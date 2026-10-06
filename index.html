@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="声屿 SoundIsle — 程序化合成的环境音混音台与专注计时器，全部声音实时生成，离线可用。" />
+    <meta name="color-scheme" content="dark light" />
+    <title>声屿 SoundIsle · 专注声境工作台</title>
+    <script>
+      // 在首帧绘制前恢复持久化的主题，避免亮色用户看到暗色闪烁
+      try {
+        var saved = JSON.parse(localStorage.getItem("soundisle:v1") || "null");
+        if (saved && (saved.theme === "light" || saved.theme === "dark")) {
+          document.documentElement.dataset.theme = saved.theme;
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+
+    <div id="app" class="app">
+      <header class="topbar">
+        <div class="topbar__brand">
+          <svg class="brand-mark" viewBox="0 0 26 26" aria-hidden="true">
+            <circle cx="16.5" cy="8.5" r="4.6" class="brand-mark__moon" />
+            <path class="brand-mark__wave" d="M2.5 17.5 q3.2 -2.8 6.4 0 t6.4 0 t6.4 0" />
+            <path class="brand-mark__wave brand-mark__wave--soft" d="M5 22 q2.9 -2.4 5.8 0 t5.8 0" />
+          </svg>
+          <h1 class="brand-name">声屿 <span class="brand-latin">SoundIsle</span></h1>
+        </div>
+        <div class="topbar__spacer"></div>
+        <div class="topbar__stats" id="stats" role="status" aria-label="专注统计"></div>
+        <button class="icon-btn" id="mute-toggle" type="button" aria-label="静音" aria-pressed="false" title="静音 (M)">🔈</button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换明暗主题" title="切换主题 (T)">🌙</button>
+      </header>
+
+      <main class="stage">
+        <section class="timer-panel" aria-label="专注计时器" id="timer-panel"></section>
+
+        <section class="console" aria-label="环境音混音台">
+          <div class="console__head">
+            <h2 class="section-title">混音台</h2>
+            <div class="preset-row" id="presets" aria-label="声景预设"></div>
+          </div>
+          <div class="console__dock">
+            <div class="mixer__grid" id="mixer-grid"></div>
+          </div>
+        </section>
+      </main>
+
+      <p class="hint" id="hint">空格 开始/暂停 · M 静音 · T 切换主题 · 1-6 切换声音</p>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+/* ============ 设计令牌：暗色为默认（夜海），亮色为暖纸晨光 ============ */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --sky-top: #0a101c;
+  --sky-mid: #090e18;
+  --sky-bottom: #0c1424;
+  --horizon-glow: rgba(96, 144, 190, 0.10);
+
+  --card: #131926;
+  --card-hover: #182031;
+  --line: rgba(148, 163, 196, 0.14);
+  --line-strong: rgba(148, 163, 196, 0.28);
+
+  --text: #e7ecf5;
+  --text-dim: #96a1b7;
+  --text-faint: #5f6b82;
+
+  --accent: #e9b264;
+  --accent-ink: #221605;
+  --accent-soft: rgba(233, 178, 100, 0.14);
+  --ring-rest: #7ed6a7;
+
+  --mix-glow: 0.16;
+  --btn-ghost-bg: rgba(148, 163, 196, 0.07);
+  --glass: color-mix(in oklab, var(--card) 58%, transparent);
+  --shadow-card: 0 22px 60px rgba(2, 5, 12, 0.5);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --sky-top: #f7f4ed;
+  --sky-mid: #f2ede1;
+  --sky-bottom: #ebe3d2;
+  --horizon-glow: rgba(224, 168, 92, 0.16);
+
+  --card: #ffffff;
+  --card-hover: #fffdf8;
+  --line: rgba(58, 68, 90, 0.13);
+  --line-strong: rgba(58, 68, 90, 0.26);
+
+  --text: #2b3240;
+  --text-dim: #636d80;
+  --text-faint: #99a1b1;
+
+  --accent: #bd7c2a;
+  --accent-ink: #fff9ef;
+  --accent-soft: rgba(189, 124, 42, 0.12);
+  --ring-rest: #3f9d74;
+
+  --mix-glow: 0.12;
+  --btn-ghost-bg: rgba(58, 68, 90, 0.05);
+  --glass: color-mix(in oklab, var(--card) 66%, transparent);
+  --shadow-card: 0 16px 40px rgba(120, 110, 90, 0.16);
+}

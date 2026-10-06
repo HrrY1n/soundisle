@@ -1,0 +1,93 @@
+/* ============ 基础排版与全局布局 ============ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  font-family:
+    "PingFang SC",
+    "HarmonyOS Sans SC",
+    "Microsoft YaHei UI",
+    "Microsoft YaHei",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--sky-mid);
+  background-image:
+    radial-gradient(1300px 520px at 50% 66%, var(--horizon-glow), transparent 72%),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 46%, var(--sky-bottom) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  /* 主题切换即时生效：过渡动画在节流/隐藏环境下会冻结在中间态，得不偿失 */
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+/* 夜海场景画布：铺满视口，纯装饰 */
+.scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.stage {
+  flex: 1;
+  width: min(1080px, 100%);
+  margin-inline: auto;
+  padding: 0 28px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* 计时器悬浮于海面之上，垂直居中占据剩余空间 */
+.timer-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
